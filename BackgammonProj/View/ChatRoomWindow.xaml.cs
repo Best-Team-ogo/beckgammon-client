@@ -21,18 +21,18 @@ namespace BackgammonProj.View
     /// </summary>
     public partial class ChatRoomWindow : Window
     {
-        public int _chatID;
-        public TextBlock mainTxtFrame;
+        private int _chatID;
         public ChatRoomWindow(int id)
         {
             InitializeComponent();
             _chatID = id;
-            mainTxtFrame = allMessages;
         }
 
         private void SendMessage(object sender, RoutedEventArgs e)
         {
             Client.Instance.SendPacket(PacketCreator.SendMessage(message.Text,_chatID));
+            allMessages.Text += "Me: " +message.Text;
+            message.Text = "";
         }
     }
 }

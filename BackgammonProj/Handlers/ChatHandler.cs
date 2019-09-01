@@ -33,28 +33,21 @@ namespace BackgammonProj.Handlers
                     if (result == DialogResult.Yes)
                     {
                         //send request Accept
-                        Client.Instance.SendPacket(PacketCreator.AnswerRequestChat(true,chatid,recep));
+                        Client.Instance.SendPacket(PacketCreator.AnswerRequestChat(true, chatid, recep));
                         //Open ChatRome
-                        try
+
+                        App.Current.Dispatcher.Invoke(() =>
                         {
-                        App.Current.Dispatcher.Invoke(() => {
                             var chatRoom = new ChatRoomWindow(chatid);
                             Client.Instance.ChatRooms.Add(chatRoom);
                             chatRoom.Show();
                         });
 
-                        }
-                        catch (Exception e)
-                        {
-
-                            MessageBox.Show(e.Message , e.StackTrace);
-                        }
-                       
                     }
-                    else if (result ==DialogResult.No)
+                    else if (result == DialogResult.No)
                     {
                         //send request Decline
-                        Client.Instance.SendPacket(PacketCreator.AnswerRequestChat(false,chatid, recep));
+                        Client.Instance.SendPacket(PacketCreator.AnswerRequestChat(false, chatid, recep));
 
                     }
 
@@ -71,29 +64,22 @@ namespace BackgammonProj.Handlers
                     else
                     {
                         chatid = reader.ReadInt();
-                        App.Current.Dispatcher.Invoke(() => {
+
+
+                        App.Current.Dispatcher.Invoke(() =>
+                        {
                             var chatRoom = new ChatRoomWindow(chatid);
                             Client.Instance.ChatRooms.Add(chatRoom);
                             chatRoom.Show();
                         });
+
+
+
                     }
                     break;
             }
 
         }
-        internal static void ChatMessage(PacketReader reader)
-        {
-            string msg = reader.ReadCommonString();
-            int id = reader.ReadInt();
-           var cc=  Client.Instance.ChatRooms.FirstOrDefault(c => c._chatID == id);
-            if( cc != null)
-            {
-                App.Current.Dispatcher.Invoke(() => {
-                    cc.allMessages.Text += msg + Environment.NewLine;
-                });
-            }
 
-
-        }
     }
 }
