@@ -1,7 +1,10 @@
-﻿using BackgammonProj.GameManager;
+﻿using BackgammonProj.Events;
+using BackgammonProj.GameManager;
 using BackgammonProj.Tools;
+using BackgammonProj.View;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,20 +25,16 @@ namespace BackgammonProj
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static Frame MainFrame;
         public MainWindow()
         {
             InitializeComponent();
-            Client.Instance.StartClient();
+        }
+        private void OnLoad(object sender, RoutedEventArgs e)
+        {
+            MainFrame = mainFrame;
+            mainFrame.Navigate(new LoginView());
         }
 
-        private void Login(object sender, RoutedEventArgs e)
-        {
-            Client.Instance.SendPacket(PacketCreator.Login(nameTxt.Text,passTxt.Text));
-        }
-
-        private void Register(object sender, RoutedEventArgs e)
-        {
-            Client.Instance.SendPacket(PacketCreator.Register(nameTxt.Text, passTxt.Text));
-        }
     }
 }

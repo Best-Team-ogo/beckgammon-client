@@ -5,23 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BackgammonProj"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="300">
-
-
-
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="281*"/>
-            <RowDefinition Height="140*"/>
-        </Grid.RowDefinitions>
-        <Button Name="LoginBtn" Click="Login" Content="Login" HorizontalAlignment="Left" Margin="56,220,0,0" VerticalAlignment="Top" Width="202" Height="71" Grid.RowSpan="2"/>
-        <Button Name="RegisterBtn" Click="Register" Content="Register" HorizontalAlignment="Left" Margin="56,44,0,0" VerticalAlignment="Top" Width="202" Height="71" Grid.Row="1"/>
-        <TextBox Name="nameTxt" HorizontalAlignment="Left" Height="22" Margin="24,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="24,26,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top"/>
-        <TextBox Name="passTxt" HorizontalAlignment="Left" Height="22" Margin="24,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="24,105,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
-
-
-
-    </Grid>
+        Title="MainWindow"
+        Loaded="OnLoad">
+    <Frame Name="mainFrame"/>
 </Window>

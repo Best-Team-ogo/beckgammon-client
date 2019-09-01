@@ -1,0 +1,29 @@
+﻿<Page x:Class="BackgammonProj.View.LoginView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BackgammonProj.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LoginView"
+      DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="281*"/>
+            <RowDefinition Height="140*"/>
+        </Grid.RowDefinitions>
+        <Button Name="LoginBtn" Command="{Binding LoginCommand}" Content="Login" HorizontalAlignment="Left" Margin="56,220,0,0" VerticalAlignment="Top" Width="202" Height="71" Grid.RowSpan="2"/>
+        <Button Name="RegisterBtn" Command="{Binding RegisterCommand}" Content="Register" HorizontalAlignment="Left" Margin="56,44,0,0" VerticalAlignment="Top" Width="202" Height="71" Grid.Row="1"/>
+        <TextBox Name="nameTxt" HorizontalAlignment="Left" Height="22" Margin="24,61,0,0" TextWrapping="Wrap" Text="{Binding UserName}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,26,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top"/>
+        <TextBox Name="passTxt" HorizontalAlignment="Left" Height="22" Margin="24,140,0,0" TextWrapping="Wrap" Text="{Binding Password}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,105,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
+
+
+
+    </Grid>
+</Page>

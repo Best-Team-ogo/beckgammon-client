@@ -15,7 +15,8 @@ namespace BackgammonProj.GameManager
         public static Client Instance = new Client();
         private Socket _server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         private const int PORT = 100;
-        private const string IP = "127.0.0.1";
+        //private const string IP = "127.0.0.1";
+        private const string IP = "91.205.172.45";
         private byte[] _buffer = new byte[2048];
         private bool _connected = false;
 
@@ -53,7 +54,9 @@ namespace BackgammonProj.GameManager
         }
 
         private volatile Mutex mutex = new Mutex();
+
         private object locker = new object();
+
         private void OnServerPacketRecive(IAsyncResult ar)
         {
             lock (locker)
@@ -76,6 +79,7 @@ namespace BackgammonProj.GameManager
             }
 
         }
+
         public void SendPacket(byte[] packet)
         {
             try
@@ -91,6 +95,7 @@ namespace BackgammonProj.GameManager
             
 
         }
+
         public byte[] GetPacket(int recive)
         {
 
@@ -99,7 +104,7 @@ namespace BackgammonProj.GameManager
             return databuff;
         }
 
-
+        
 
     }
 }
