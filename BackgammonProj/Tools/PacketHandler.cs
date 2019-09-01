@@ -30,7 +30,10 @@ namespace BackgammonProj.Tools
                 case ServerHeaders.CHAT_REQUEST_RESPONS:
                     ChatHandler.ChatResponse(reader);
                     break;
-
+                case ServerHeaders.SEND_MESSAGE_RESPONE:
+                    ChatHandler.ChatMessage(reader);
+                    break;
+                    
 
                 default:
                     System.Windows.Forms.MessageBox.Show("Handler cannot be found!");

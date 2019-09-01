@@ -22,7 +22,7 @@ namespace BackgammonProj.GameManager
         private byte[] _buffer = new byte[2048];
         private bool _connected = false;
 
-        public List<ChatRoomWindow> ChatRooms{ get; set; }
+        public List<ChatRoomWindow> ChatRooms { get; set; } = new List<ChatRoomWindow>();
 
 
         public void StartClient()

@@ -15,5 +15,6 @@ namespace BackgammonProj.Headers
         public const short GET_ALL_ONLINE_USERS = 4;
         //CHAT
         public const short CHAT_REQUEST_RESPONS = 5;
+        public const short SEND_MESSAGE_RESPONE = 7;
     }
 }

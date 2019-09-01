@@ -35,11 +35,20 @@ namespace BackgammonProj.Handlers
                         //send request Accept
                         Client.Instance.SendPacket(PacketCreator.AnswerRequestChat(true,chatid,recep));
                         //Open ChatRome
+                        try
+                        {
                         App.Current.Dispatcher.Invoke(() => {
                             var chatRoom = new ChatRoomWindow(chatid);
                             Client.Instance.ChatRooms.Add(chatRoom);
                             chatRoom.Show();
                         });
+
+                        }
+                        catch (Exception e)
+                        {
+
+                            MessageBox.Show(e.Message , e.StackTrace);
+                        }
                        
                     }
                     else if (result ==DialogResult.No)
@@ -72,6 +81,19 @@ namespace BackgammonProj.Handlers
             }
 
         }
+        internal static void ChatMessage(PacketReader reader)
+        {
+            string msg = reader.ReadCommonString();
+            int id = reader.ReadInt();
+           var cc=  Client.Instance.ChatRooms.FirstOrDefault(c => c._chatID == id);
+            if( cc != null)
+            {
+                App.Current.Dispatcher.Invoke(() => {
+                    cc.allMessages.Text += msg + Environment.NewLine;
+                });
+            }
 
+
+        }
     }
 }

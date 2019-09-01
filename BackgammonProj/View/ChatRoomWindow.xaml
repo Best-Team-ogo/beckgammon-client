@@ -7,11 +7,14 @@
         mc:Ignorable="d"
         Title="ChatRoomWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock Name="allMessages"/>
-        <StackPanel VerticalAlignment="Bottom">
-        <TextBlock Text="Send Message"/>
-        <TextBox Height="50" AcceptsReturn="True"  Name="message"/>
-        <Button  Content="Send Message" Click="SendMessage"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Name="allMessages" Margin="0,0,-0.667,-0.333"/>
+        <StackPanel VerticalAlignment="Bottom" Margin="0,0,0.333,-0.333">
+            <TextBlock Text="Send Message"/>
+            <TextBox Height="50" AcceptsReturn="True"  Name="message"/>
+            <Button  Content="Send Message" Click="SendMessage"/>
         </StackPanel>
     </Grid>
 </Window>
