@@ -1,4 +1,5 @@
 ﻿using BackgammonProj.Handlers;
+using BackgammonProj.Headers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,17 +15,20 @@ namespace BackgammonProj.Tools
             int header = reader.ReadShort(); // Header
             switch (header)
             {
-                case ClientHeaders.LOGIN:
+                case ServerHeaders.LOGIN_RESPONSE:
                     UserHandler.Login(reader);
                     break;
-                case ClientHeaders.REGISTER:
+                case ServerHeaders.REGISTER_RESPONSE:
                     UserHandler.Register(reader);
                     break;
-                case ClientHeaders.UPDATE_USERS:
+                case ServerHeaders.UPDATE_USERS:
                     UserHandler.UpdateUserOnline(reader);
                     break;
-                case ClientHeaders.GET_ALL_ONLINE_USERS:
+                case ServerHeaders.GET_ALL_ONLINE_USERS:
                     UserHandler.GetAllUsersName(reader);
+                    break;
+                case ServerHeaders.CHAT_REQUEST_RESPONS:
+                    ChatHandler.ChatResponse(reader);
                     break;
 
 

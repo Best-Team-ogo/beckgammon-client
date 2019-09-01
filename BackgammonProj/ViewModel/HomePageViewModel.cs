@@ -52,13 +52,17 @@ namespace BackgammonProj.ViewModel
         {
             if (SelectedUser != null)
             {
-
+                Client.Instance.SendPacket(PacketCreator.RequestChat(SelectedUser.Name));
+                System.Windows.Forms.MessageBox.Show("Chat request was sended");
             }
         }
 
         public void StartNewGame()
         {
+            if (SelectedUser != null)
+            {
 
+            }
         }
 
         private void Notify(string name)

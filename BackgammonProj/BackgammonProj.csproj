@@ -86,13 +86,15 @@
     <Compile Include="GameLogic\Player.cs" />
     <Compile Include="GameLogic\RedPlayer.cs" />
     <Compile Include="GameLogic\Triangle.cs" />
+    <Compile Include="Handlers\ChatHandler.cs" />
+    <Compile Include="Headers\ServerHeaders.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Events\GlobalEvents.cs" />
     <Compile Include="Model\GlobalEvent.cs" />
     <Compile Include="Handlers\UserHandler.cs" />
     <Compile Include="Model\Icons.cs" />
     <Compile Include="Model\ImplementOptionsForGrid.cs" />
-    <Compile Include="Tools\ClientHeaders.cs" />
+    <Compile Include="Headers\ClientHeaders.cs" />
     <Compile Include="Tools\PacketCreator.cs" />
     <Compile Include="Tools\PacketHandler.cs" />
     <Compile Include="Tools\PacketReader.cs" />
@@ -100,11 +102,15 @@
     <Compile Include="Model\TriangleUiEl.cs" />
     <Compile Include="ViewModel\BackgammonBoardViewModel.cs" />
     <Compile Include="ViewModel\BarViewModel.cs" />
+    <Compile Include="ViewModel\ChatRoomViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\Backgammon.xaml.cs">
       <DependentUpon>Backgammon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChatRoomWindow.xaml.cs">
+      <DependentUpon>ChatRoomWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
@@ -126,6 +132,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Backgammon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChatRoomWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -60,8 +60,7 @@ namespace BackgammonProj.Handlers
                 , new OnGetUserEventArgs { Update = false
                 , Users = users });
         }
-
-
+        
         internal static void UpdateUserOnline(PacketReader reader)
         {
             
@@ -74,6 +73,6 @@ namespace BackgammonProj.Handlers
                 ,AddUser = action==1? true:false});
         }
 
-
+        
     }
 }

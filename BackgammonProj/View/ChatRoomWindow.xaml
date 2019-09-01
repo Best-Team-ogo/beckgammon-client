@@ -1,0 +1,17 @@
+﻿<Window x:Class="BackgammonProj.View.ChatRoomWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BackgammonProj.View"
+        mc:Ignorable="d"
+        Title="ChatRoomWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock Name="allMessages"/>
+        <StackPanel VerticalAlignment="Bottom">
+        <TextBlock Text="Send Message"/>
+        <TextBox Height="50" AcceptsReturn="True"  Name="message"/>
+        <Button  Content="Send Message" Click="SendMessage"/>
+        </StackPanel>
+    </Grid>
+</Window>

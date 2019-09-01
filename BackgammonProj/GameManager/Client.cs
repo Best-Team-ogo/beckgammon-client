@@ -1,4 +1,5 @@
 ﻿using BackgammonProj.Tools;
+using BackgammonProj.View;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -17,9 +18,11 @@ namespace BackgammonProj.GameManager
         private const int PORT = 100;
         //private const string IP = "127.0.0.1";
         private const string IP = "91.205.172.45";
+        //private const string IP = "25.90.105.246";
         private byte[] _buffer = new byte[2048];
         private bool _connected = false;
 
+        public List<ChatRoomWindow> ChatRooms{ get; set; }
 
 
         public void StartClient()
@@ -37,6 +40,11 @@ namespace BackgammonProj.GameManager
                 Debug.Write(e.Message);
 
             }
+        }
+
+        internal void LogOut()
+        {
+            _connected = false;
         }
 
         private void BeginRecive()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BackgammonProj.GameManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace BackgammonProj.Tools
             writer.WriteCommonString(pass);
             return writer.ToArray();
         }
+
         internal static byte[] Register(string username,string name, string pass)
         {
             PacketWriter writer = new PacketWriter();
@@ -26,7 +28,44 @@ namespace BackgammonProj.Tools
             return writer.ToArray();
         }
 
-        
+        internal static byte[] SendMessage(string text)
+        {
+            PacketWriter writer = new PacketWriter();
+            writer.WriteShort(ClientHeaders.REGISTER);
+            writer.WriteCommonString(text);
+            return writer.ToArray();
+        }
+        //test
+
+        internal static byte[] LogOut()
+        {
+            PacketWriter writer = new PacketWriter();
+            writer.WriteShort(ClientHeaders.LOGOUT);
+            return writer.ToArray();
+        }
+
+        internal static byte[] RequestChat(string userChat)
+        {
+            PacketWriter writer = new PacketWriter();
+            writer.WriteShort(ClientHeaders.CHAT_REQUEST);
+            writer.WriteByte(0); //request a chat from the server
+            writer.WriteCommonString(userChat);
+            return writer.ToArray();
+        }
+
+        internal static byte[] AnswerRequestChat(bool ans,int chatid,string requester)
+        {
+            PacketWriter writer = new PacketWriter();
+            writer.WriteShort(ClientHeaders.CHAT_REQUEST);
+            writer.WriteByte(1); //answer request a chat from the server
+            writer.WriteBool(ans);
+            writer.WriteCommonString(requester);
+            writer.WriteInt(chatid);
+
+            return writer.ToArray();
+        }
+
+
 
 
     }
