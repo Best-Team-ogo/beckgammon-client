@@ -31,7 +31,7 @@ namespace BackgammonProj.View
         private void SendMessage(object sender, RoutedEventArgs e)
         {
             Client.Instance.SendPacket(PacketCreator.SendMessage(message.Text,_chatID));
-            allMessages.Text += "Me: " +message.Text;
+            allMessages.Text += "Me: " +message.Text + Environment.NewLine;
             message.Text = "";
         }
     }
