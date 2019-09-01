@@ -81,5 +81,18 @@ namespace BackgammonProj.Handlers
 
         }
 
+        internal static void ChatMessage(PacketReader reader)
+        {
+            string msg = reader.ReadCommonString();
+            int id = reader.ReadInt();
+            var cc = Client.Instance.ChatRooms.FirstOrDefault(c => c._chatID == id);
+            if (cc != null)
+            {
+                App.Current.Dispatcher.Invoke(() =>
+                {
+                    cc.allMessages.Text += msg + Environment.NewLine;
+                });
+            }
+        }
     }
 }

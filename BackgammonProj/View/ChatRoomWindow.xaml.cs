@@ -21,7 +21,7 @@ namespace BackgammonProj.View
     /// </summary>
     public partial class ChatRoomWindow : Window
     {
-        private int _chatID;
+        public int _chatID;
         public ChatRoomWindow(int id)
         {
             InitializeComponent();
