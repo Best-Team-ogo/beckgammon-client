@@ -33,7 +33,7 @@ namespace BackgammonProj.Tools
 
 
                 default:
-                    System.Windows.Forms.MessageBox.Show("Handler cannot be found!");
+                    System.Windows.Forms.MessageBox.Show("Handler cannot be found!" + header);
                     break;
             }
         }

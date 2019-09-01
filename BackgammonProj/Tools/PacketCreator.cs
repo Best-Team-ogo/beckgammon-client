@@ -28,11 +28,12 @@ namespace BackgammonProj.Tools
             return writer.ToArray();
         }
 
-        internal static byte[] SendMessage(string text)
+        internal static byte[] SendMessage(string text,int id)
         {
             PacketWriter writer = new PacketWriter();
-            writer.WriteShort(ClientHeaders.REGISTER);
+            writer.WriteShort(ClientHeaders.SEND_MESSAGE);
             writer.WriteCommonString(text);
+            writer.WriteInt(id);
             return writer.ToArray();
         }
         //test

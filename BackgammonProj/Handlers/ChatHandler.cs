@@ -33,19 +33,21 @@ namespace BackgammonProj.Handlers
                     if (result == DialogResult.Yes)
                     {
                         //send request Accept
-                        Client.Instance.SendPacket(PacketCreator.AnswerRequestChat(true,chatid,recep));
+                        Client.Instance.SendPacket(PacketCreator.AnswerRequestChat(true, chatid, recep));
                         //Open ChatRome
-                        App.Current.Dispatcher.Invoke(() => {
+
+                        App.Current.Dispatcher.Invoke(() =>
+                        {
                             var chatRoom = new ChatRoomWindow(chatid);
                             Client.Instance.ChatRooms.Add(chatRoom);
                             chatRoom.Show();
                         });
-                       
+
                     }
-                    else if (result ==DialogResult.No)
+                    else if (result == DialogResult.No)
                     {
                         //send request Decline
-                        Client.Instance.SendPacket(PacketCreator.AnswerRequestChat(false,chatid, recep));
+                        Client.Instance.SendPacket(PacketCreator.AnswerRequestChat(false, chatid, recep));
 
                     }
 
@@ -62,11 +64,17 @@ namespace BackgammonProj.Handlers
                     else
                     {
                         chatid = reader.ReadInt();
-                        App.Current.Dispatcher.Invoke(() => {
+
+
+                        App.Current.Dispatcher.Invoke(() =>
+                        {
                             var chatRoom = new ChatRoomWindow(chatid);
                             Client.Instance.ChatRooms.Add(chatRoom);
                             chatRoom.Show();
                         });
+
+
+
                     }
                     break;
             }
